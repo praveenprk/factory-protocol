@@ -24,3 +24,9 @@ without the document wrapper (the source used to build `index.html`).
 
 Sources: ContextOS `AGENTS.md`, `docs/DECISIONS.md` (DECISION-017, -019, -039),
 `factory/protocol/state-machine`, `factory/supervisor.sh`, RFC-032 §7.
+
+## License
+
+Licensed under the [Apache License, Version 2.0](LICENSE). See [NOTICE](NOTICE)
+for copyright and trademark information. The license does not grant rights to
+the "Factory Protocol" name.
