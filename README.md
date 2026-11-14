@@ -3,7 +3,12 @@
 A visual explainer of the **ContextOS Factory Protocol**, the gated
 production line ContextOS uses to build itself.
 
-Open `index.html` in a browser.
+> **Work in progress.** The Factory Protocol is still being strengthened.
+> Content here may change as the protocol evolves.
+
+View it live at https://praveenprk.github.io/factory-protocol/ or open
+`index.html` in a browser. `factory-protocol.html` is the same page
+without the document wrapper (the source used to build `index.html`).
 
 ## What it covers
 
