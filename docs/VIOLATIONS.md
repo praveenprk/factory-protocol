@@ -18,7 +18,7 @@
 | ID | Standard | Audit check | Severity | Status |
 |----|----------|-------------|----------|--------|
 | V-ENG-008-01 | ENG-STD-008 `contributing` | contributing | HIGH | RESOLVED |
-| V-ENG-008-02 | ENG-STD-008 `security` | security | HIGH | OPEN |
+| V-ENG-008-02 | ENG-STD-008 `security` | security | HIGH | RESOLVED |
 | V-ENG-008-03 | ENG-STD-008 `tests` | tests | HIGH | OPEN |
 | V-ENG-004-01 | ENG-STD-004 §6.1 | fmt_lint | HIGH | OPEN |
 | V-ENG-008-04 | ENG-STD-008 `required` | required | HIGH | OPEN |
@@ -47,7 +47,7 @@ Severity  : HIGH — rule a gives MEDIUM (OpenSSF Scorecard Security-Policy); ru
 Impact    : A reporter may disclose a problem in a public issue, for example a script injection in the page served on GitHub Pages.
 Fix       : SECURITY.md pointing to private vulnerability reporting. Security-related (ENG-STD-005 §2.5): its own pull request, label `security`, merged by a human.
 When      : Next change.
-Status    : OPEN
+Status    : RESOLVED — 2026-11-25, the change that adds SECURITY.md (issue #3).
 Anchor    : #3
 
 ### V-ENG-008-03

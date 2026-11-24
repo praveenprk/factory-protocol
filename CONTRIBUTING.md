@@ -15,7 +15,7 @@ or automated, are in [AGENTS.md](AGENTS.md). This page is the short version.
   contextos source that shows it (docs/DECISIONS.md DECISION-002).
 - **Found a security problem?** Do not open a public issue. Report it
   privately through the repository's Security tab ("Report a
-  vulnerability").
+  vulnerability"). See [SECURITY.md](SECURITY.md).
 
 ## Viewing the page
 
