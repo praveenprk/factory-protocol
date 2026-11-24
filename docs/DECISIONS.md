@@ -109,3 +109,34 @@ Risk    : Dependabot's pull requests carry no anchor, so the shared commit
           commits. Reformatting the page with Prettier is a one-off
           whitespace change (DECISION-002, trivial class).
 Status  : PROPOSED
+
+---
+
+## DECISION-004 — main and stable (ENG-DEC-012)
+
+Date    : 2026-11-25
+Refs    : eng-principles ENG-DEC-012, ENG-DEC-015 (Q-005, Q-007), ENG-STD-005 §2.3–§2.6, §5.1; DECISION-001; Q-001, Q-002
+Decision: factory-protocol runs two long-lived branches, as ENG-DEC-012
+          sets:
+          - `main`, the default branch: integration. Every change comes
+            from a work branch through a pull request into `main`.
+          - `stable`: what is released. It changes only by a pull request
+            from `main`, merged with a merge commit by the governor, who
+            tags each release `vX.Y.Z` (signed) on `stable` with a release
+            record (ENG-STD-005 §2.6). The first tag is v0.1.0.
+          Judgments are Q-NNN entries in docs/QUESTIONS.md. The
+          `commit-check / questions` check, already run by
+          .github/workflows/commit-check.yml, fails while any is OPEN.
+          Who merges into `main` once `stable` exists is Q-001. DECISION-001
+          stands until the answer. Where Pages publishes from is Q-002.
+          The repository settings (the `stable` branch, its ruleset, the
+          required checks, the Pages source, the tag) are the governor's.
+          This decision changes none of them.
+Reason  : Governor, 2026-11-25: "go for the main+stable prep (ENG-DEC-012)".
+          ENG-DEC-012 names software and specification projects. This
+          documentation project follows it, so that one flow covers every
+          governed repository.
+Risk    : Until the governor's settings are in place, the Roles lines
+          marked "effective when stable exists" describe a flow that cannot
+          run yet.
+Status  : PROPOSED
