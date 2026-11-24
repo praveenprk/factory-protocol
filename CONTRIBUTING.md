@@ -44,6 +44,17 @@ drift.
    pull request.
 6. **Merging:** the governor merges into `main` (AGENTS.md: Roles).
 
+## Checks you can run locally
+
+CI runs the same commands (.github/workflows/ci.yml, DECISION-003):
+
+```sh
+python3 scripts/build_index.py              # regenerate index.html after editing the page
+python3 -m unittest discover -s tests       # page tests, standard library only
+npm ci && npm run format:check && npm run lint     # Prettier and ESLint
+pip install -r requirements-dev.txt && ruff check . && ruff format --check .
+```
+
 ## Conduct
 
 Everyone taking part follows the [Code of Conduct](CODE_OF_CONDUCT.md).

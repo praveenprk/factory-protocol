@@ -1,0 +1,21 @@
+name: Commit check
+
+# The pull request's title, description and every commit it brings to main
+# follow eng-principles ENG-STD-005 §1 (format, anchors that resolve, no
+# co-author or tool attribution). The check is eng-principles' shared
+# workflow, pinned to a commit (ENG-DEC-009, DECISION-001). This project's
+# policy is scripts/hooks/types and scripts/hooks/anchors (V-ENG-005-02).
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  commit-check:
+    uses: praveenprk/eng-principles/.github/workflows/commit-check.yml@86134435a8a05a4e0513d310d24b6aedbfde45a6
+    with:
+      config: scripts/hooks

@@ -19,14 +19,14 @@
 |----|----------|-------------|----------|--------|
 | V-ENG-008-01 | ENG-STD-008 `contributing` | contributing | HIGH | RESOLVED |
 | V-ENG-008-02 | ENG-STD-008 `security` | security | HIGH | RESOLVED |
-| V-ENG-008-03 | ENG-STD-008 `tests` | tests | HIGH | OPEN |
-| V-ENG-004-01 | ENG-STD-004 §6.1 | fmt_lint | HIGH | OPEN |
+| V-ENG-008-03 | ENG-STD-008 `tests` | tests | HIGH | OPEN (tests/ in CI; awaits DECISION-002) |
+| V-ENG-004-01 | ENG-STD-004 §6.1 | fmt_lint | HIGH | RESOLVED |
 | V-ENG-008-04 | ENG-STD-008 `required` | required | HIGH | OPEN |
-| V-ENG-008-05 | ENG-STD-008 `dependabot` | dependabot | HIGH | OPEN |
-| V-ENG-008-06 | ENG-STD-008 `ci` | ci | LOW | OPEN |
+| V-ENG-008-05 | ENG-STD-008 `dependabot` | dependabot | HIGH | RESOLVED |
+| V-ENG-008-06 | ENG-STD-008 `ci` | ci | LOW | RESOLVED |
 | V-ENG-006-01 | ENG-STD-006 §1 | registers | MEDIUM | RESOLVED |
 | V-ENG-005-01 | ENG-STD-005 §6.1 | agents | MEDIUM | RESOLVED |
-| V-ENG-005-02 | ENG-STD-005 §1.3, §1.5 | commit_check | MEDIUM | OPEN |
+| V-ENG-005-02 | ENG-STD-005 §1.3, §1.5 | commit_check | MEDIUM | PARTIALLY_RESOLVED |
 
 ---
 
@@ -65,9 +65,9 @@ SPEC says : ENG-STD-004 §6.1 — "Each project MUST pin one formatter and one l
 Code does : factory-protocol.html and index.html each carry one inline `<script>` (`grep -c '<script' index.html factory-protocol.html` → 1, 1). No formatter or linter, and no CI (no .github/ in `git ls-files` at 1340fa7). Which languages §6.1 binds is not recorded (§0.2).
 Severity  : HIGH — rule b, OpenSSF Best Practices MUST `warnings`.
 Impact    : Script errors in the page are found only by someone opening it in a browser.
-Fix       : A decision naming the languages bound (§0.2), and a CI job running a pinned formatter and linter for each.
+Fix       : DECISION-003 names the languages bound (§0.2): JavaScript in the inline script (Prettier 3.10.1, ESLint 10.15.0 with eslint-plugin-html 8.2.1) and Python in tests/ and scripts/ (ruff 0.17.6, check and format). The `lint` job of .github/workflows/ci.yml runs them; versions are pinned in package-lock.json and requirements-dev.txt.
 When      : CI change.
-Status    : OPEN
+Status    : RESOLVED — 2026-11-25, the CI change (issue #3).
 Anchor    : #3
 
 ### V-ENG-008-04
@@ -75,7 +75,7 @@ SPEC says : ENG-STD-008 §2.2, check `required` (MUST): a build or test check is
 Code does : Ruleset `factory-protocol-ruleset` requires only "GitGuardian Security Checks" (`gh api repos/praveenprk/factory-protocol/rulesets/27276808`, 2026-11-25). There is no build or test check to require yet.
 Severity  : HIGH — rule a, OpenSSF Scorecard Branch-Protection (High).
 Impact    : A change that breaks the page can merge.
-Fix       : After the CI change merges, the governor adds its jobs to the ruleset's required checks. Changing required checks is security-related (ENG-STD-005 §2.5) and is the governor's.
+Fix       : After the CI change merges, the governor adds its jobs (`lint`, `test`, `links`, and `commit-check / check`) to the ruleset's required checks. Changing required checks is security-related (ENG-STD-005 §2.5) and is the governor's.
 When      : After the CI change.
 Status    : OPEN
 Anchor    : #3
@@ -85,9 +85,9 @@ SPEC says : ENG-STD-008 §2.2, check `dependabot` (SHOULD): automated dependency
 Code does : No .github/dependabot.yml or Renovate configuration at 1340fa7.
 Severity  : HIGH — rule a, OpenSSF Scorecard Dependency-Update-Tool (High).
 Impact    : Once CI uses pinned actions and tools, they go stale silently.
-Fix       : .github/dependabot.yml for GitHub Actions and the pinned CI tools.
+Fix       : .github/dependabot.yml: weekly updates for GitHub Actions, npm (package.json) and pip (requirements-dev.txt), labelled `security` (DECISION-002).
 When      : CI change.
-Status    : OPEN
+Status    : RESOLVED — 2026-11-25, the CI change (issue #3).
 Anchor    : #3
 
 ### V-ENG-008-06
@@ -95,9 +95,9 @@ SPEC says : ENG-STD-008 §2.2, check `ci` (MUST): CI runs on every pull request.
 Code does : No workflow at 1340fa7. Audit: "no workflow runs on pull requests".
 Severity  : LOW — rule a, OpenSSF Scorecard CI-Tests (Low).
 Impact    : Nothing is checked before a merge except GitGuardian.
-Fix       : A workflow on `pull_request` running the lint, tests and link check.
+Fix       : .github/workflows/ci.yml runs on every pull request and on pushes to main: jobs `lint`, `test`, `links`.
 When      : CI change.
-Status    : OPEN
+Status    : RESOLVED — 2026-11-25, the CI change (issue #3).
 Anchor    : #3
 
 ### V-ENG-006-01
@@ -127,5 +127,5 @@ Severity  : MEDIUM — rule c, eng-principles' own rule; it changes no behaviour
 Impact    : The reason for each change cannot be traced by machine.
 Fix       : A workflow calling eng-principles' shared commit check pinned to a commit (ENG-DEC-009), with scripts/hooks/types and scripts/hooks/anchors (this change); then the governor requires `commit-check / check`. History is not rewritten: resolved forward only.
 When      : CI change, then the governor's ruleset change.
-Status    : OPEN
+Status    : PARTIALLY_RESOLVED — 2026-11-25, the CI change (issue #3): .github/workflows/commit-check.yml calls the shared check pinned to eng-principles 8613443. Not yet required by the ruleset (V-ENG-008-04).
 Anchor    : DECISION-001

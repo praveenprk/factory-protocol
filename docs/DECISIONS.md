@@ -75,3 +75,37 @@ Reason  : ENG-STD-002 §5.4 requires a documentation-only project to record
 Risk    : Most facts on the page are prose. Until tests cover them, only
           review checks that they match contextos.
 Status  : PROPOSED (the trivial class is the governor's to decide, ENG-STD-002 §3.2)
+
+---
+
+## DECISION-003 — Languages bound by ENG-STD-004 §6.1, and their tools
+
+Date    : 2026-11-25
+Refs    : eng-principles ENG-STD-004 §0, §6.1, §7 (ENG-DEC-015); V-ENG-004-01, V-ENG-008-03, V-ENG-008-05, V-ENG-008-06; issue #3
+Decision: §6.1 binds two languages here (§0.2):
+          | Language   | Where                                  | Formatter          | Linter |
+          |------------|----------------------------------------|--------------------|--------|
+          | JavaScript | inline `<script>` in factory-protocol.html | Prettier 3.10.1 (formats the whole page) | ESLint 10.15.0, @eslint/js recommended, eslint-plugin-html 8.2.1 |
+          | Python     | tests/, scripts/                        | ruff 0.17.6 format | ruff 0.17.6 check (ruff.toml) |
+          index.html is generated from factory-protocol.html by
+          scripts/build_index.py and is not formatted or linted itself;
+          tests/test_page.py fails if it is stale. Workflow `run:` steps are
+          held to §4 and §7 by review only.
+          Dependencies (§7.1): the four npm packages and ruff are
+          development tools only; nothing is shipped to the page. Versions
+          are exact (package-lock.json, requirements-dev.txt) and Dependabot
+          proposes updates. Python tests use the standard library only.
+Reason  : The audit's `fmt_lint` check detects the inline script as
+          JavaScript, and the tests added for V-ENG-008-03 are Python.
+          Prettier and ESLint are what the audit names for JavaScript, and
+          ruff is what fid and eng-principles already use. Rejected: Biome
+          (does not lint scripts inside HTML), and JavaScript tests: the
+          tests read the page as text and need nothing beyond the Python
+          standard library, so testing the page needs no Node runtime or
+          test framework. As a consequence, the audit's `tests` check,
+          which looks for Rust or Python tests, finds them.
+Risk    : Dependabot's pull requests carry no anchor, so the shared commit
+          check refuses them; the governor retitles them or recreates their
+          commits. Reformatting the page with Prettier is a one-off
+          whitespace change (DECISION-002, trivial class).
+Status  : PROPOSED

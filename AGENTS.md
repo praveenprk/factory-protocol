@@ -37,7 +37,8 @@ Factory Protocol. What the page describes is defined in contextos, not here
 2. A check in tests/ that fails first, where the fact can be checked by
    machine; otherwise the pull request names the source line.
 3. Then the page: edit factory-protocol.html, and regenerate index.html from
-   it (index.html is the same page inside a document wrapper).
+   it with `python3 scripts/build_index.py` (index.html is the same page
+   inside a document wrapper; tests/ fails if it is stale).
 4. Then README.md and the registers.
 
 Trivial changes (DECISION-002: typos, formatting, link fixes, dependency
