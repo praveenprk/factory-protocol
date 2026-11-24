@@ -25,6 +25,14 @@ without the document wrapper (the source used to build `index.html`).
 Sources: ContextOS `AGENTS.md`, `docs/DECISIONS.md` (DECISION-017, -019, -039),
 `factory/protocol/state-machine`, `factory/supervisor.sh`, RFC-032 §7.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md). The page
+follows the factory it describes: a correction cites the contextos source
+that shows it. Decisions, known gaps and conformance are recorded in
+[docs/DECISIONS.md](docs/DECISIONS.md), [docs/VIOLATIONS.md](docs/VIOLATIONS.md)
+and [docs/conformance/factory-protocol-ICS.md](docs/conformance/factory-protocol-ICS.md).
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE). See [NOTICE](NOTICE)
