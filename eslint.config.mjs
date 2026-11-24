@@ -5,7 +5,7 @@ import js from "@eslint/js";
 import html from "eslint-plugin-html";
 
 export default [
-  { ignores: ["index.html", "node_modules/"] },
+  { ignores: ["index.html", "node_modules/", ".venv/"] },
   js.configs.recommended,
   {
     files: ["factory-protocol.html"],
