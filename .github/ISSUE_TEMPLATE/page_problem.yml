@@ -1,0 +1,18 @@
+name: Page problem
+description: Something on the page is broken, unreadable or inaccessible (a link, the diagram, layout, keyboard use)
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you did, what you expected, and what you saw.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Browser and device
+      placeholder: e.g. Firefox 140 on Linux, Safari on iPhone
+  - type: markdown
+    attributes:
+      value: A security problem goes to the Security tab ("Report a vulnerability"), not here.
