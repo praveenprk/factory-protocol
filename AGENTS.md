@@ -21,8 +21,8 @@ Factory Protocol. What the page describes is defined in contextos, not here
   There is no `stable` branch yet. The governor has started the main+stable
   migration (ENG-DEC-012, DECISION-004). Until `stable` exists, the two lines
   above apply as written.
-- **Effective when `stable` exists (ENG-DEC-012, DECISION-004; pending
-  Q-001):** any contributor, human or automated, merges a pull request into
+- **Effective when `stable` exists (ENG-DEC-012, DECISION-004,
+  DECISION-005):** any contributor, human or automated, merges a pull request into
   `main` once every required check passes, no question in docs/QUESTIONS.md
   is OPEN, and the change is not labelled `security`. Security-related
   changes are merged by the governor. Only the governor merges `main` →
@@ -35,7 +35,11 @@ Factory Protocol. What the page describes is defined in contextos, not here
 - Questions: a judgment the work needs is a Q-NNN entry in
   docs/QUESTIONS.md, added by the pull request that raises it. The governor
   answers on that pull request. A contributor never marks a question
-  answered.
+  answered on anyone else's word. The one exception is the standing rule
+  (DECISION-006): the contributor records the question's Recommend option
+  as "ANSWERED (governor, standing rule 2026-11-25): <option>". The
+  governor's own answer on the pull request overrides it. Security merges,
+  settings and tags still wait for the governor.
 
 ## Before work
 

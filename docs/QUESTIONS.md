@@ -8,6 +8,11 @@ while any entry is OPEN, so nothing reaches `main` with an open question. An
 answer that changes how this project works becomes a DECISION-NNN entry in
 docs/DECISIONS.md. Entries are never deleted (ENG-STD-006 §2.1).
 
+Standing rule (DECISION-006): the Recommend option is the governor's answer.
+It is recorded as "ANSWERED (governor, standing rule 2026-11-25): <option>".
+The governor can override it on the pull request. Security merges, settings
+and tags still wait for the governor.
+
 ---
 
 ### Q-001
@@ -33,7 +38,7 @@ Recommend: A, because it is the flow ENG-DEC-012 sets for every project,
            and the governor's review of each `main` → `stable` promotion
            still comes before anything is released.
 Raised by: the pull request that adds this file (chore/ENG-DEC-012-main-stable-prep)
-Status   : OPEN
+Status   : ANSWERED (governor, standing rule 2026-11-25): A → DECISION-005
 
 ### Q-002
 Scenario : GitHub Pages publishes the page from `main`
@@ -50,4 +55,4 @@ Options  : A — Publish from `stable`: the public page is the released page,
 Recommend: A, because the published page is what readers rely on. It
            should pass the same human review as a release.
 Raised by: the pull request that adds this file (chore/ENG-DEC-012-main-stable-prep)
-Status   : OPEN
+Status   : ANSWERED (governor, standing rule 2026-11-25): A → DECISION-004

@@ -115,7 +115,7 @@ Status  : PROPOSED
 ## DECISION-004 — main and stable (ENG-DEC-012)
 
 Date    : 2026-11-25
-Refs    : eng-principles ENG-DEC-012, ENG-DEC-015 (Q-005, Q-007), ENG-STD-005 §2.3–§2.6, §5.1; DECISION-001; Q-001, Q-002
+Refs    : eng-principles ENG-DEC-012, ENG-DEC-015 (Q-005, Q-007), ENG-STD-005 §2.3–§2.6, §5.1; DECISION-001, DECISION-005, DECISION-006; Q-001, Q-002
 Decision: factory-protocol runs two long-lived branches, as ENG-DEC-012
           sets:
           - `main`, the default branch: integration. Every change comes
@@ -127,8 +127,11 @@ Decision: factory-protocol runs two long-lived branches, as ENG-DEC-012
           Judgments are Q-NNN entries in docs/QUESTIONS.md. The
           `commit-check / questions` check, already run by
           .github/workflows/commit-check.yml, fails while any is OPEN.
-          Who merges into `main` once `stable` exists is Q-001. DECISION-001
-          stands until the answer. Where Pages publishes from is Q-002.
+          Who merges into `main` once `stable` exists: DECISION-005 (Q-001).
+          Pages publishes from `stable` (Q-002, answered A): the public page
+          is the released page, and each promotion is a release with its
+          record. Before the Pages source moves, the `github-pages`
+          environment must allow deployments from `stable`.
           The repository settings (the `stable` branch, its ruleset, the
           required checks, the Pages source, the tag) are the governor's.
           This decision changes none of them.
@@ -141,3 +144,53 @@ Risk    : Until the governor's settings are in place, the Roles lines
           marked "effective when stable exists" describe a flow that cannot
           run yet.
 Status  : PROPOSED
+
+---
+
+## DECISION-005 — Merge right into `main` once `stable` exists
+
+Date    : 2026-11-25
+Refs    : Q-001 (answered A); eng-principles ENG-DEC-012, ENG-DEC-015 (Q-005), ENG-STD-005 §2.3, §2.5; DECISION-001, DECISION-004, DECISION-006
+Decision: From the day `stable` exists, any contributor, human or
+          automated, merges a pull request into `main` once every required
+          check passes, no question in docs/QUESTIONS.md is OPEN, and the
+          change is not labelled `security`. The governor (praveenprk)
+          merges security-related changes, merges `main` → `stable`, and
+          tags releases. An automated contributor never pushes to `stable`,
+          promotes, or tags. Until `stable` exists, DECISION-001's Roles
+          paragraph applies unchanged.
+          This supersedes DECISION-001's Roles paragraph from that day.
+          The rest of DECISION-001 stands.
+Reason  : Q-001, option A: the flow ENG-DEC-012 sets for every governed
+          project. The governor's review of each `main` → `stable`
+          promotion comes before anything is released, including the
+          public page (Q-002).
+Risk    : Changes reach `main` without a human reading them. Bounded by the
+          required checks, the questions check, the `security` label, and
+          the governor's promotion review. A change wrongly left unlabelled
+          is caught at that review.
+Status  : PROPOSED
+
+---
+
+## DECISION-006 — Standing rule: a question's recommended option is the governor's answer
+
+Date    : 2026-11-25
+Refs    : eng-principles ENG-STD-005 §2.4, §2.5, §2.6; docs/QUESTIONS.md
+Decision: The governor set a standing rule on 2026-11-25. For every Q-NNN
+          entry a contributor raises in docs/QUESTIONS.md, the option under
+          "Recommend" is the governor's answer. The contributor records it
+          as "ANSWERED (governor, standing rule 2026-11-25): <option>",
+          pointing to the decision that carries it. The governor can still
+          answer differently on the pull request, which overrides it.
+          The rule does not cover security-related merges, repository
+          settings (branch rules, required checks, environments, Pages), or
+          tags and releases. Those still wait for the governor.
+Reason  : The governor's direction in the session that prepared main and
+          stable. A recommendation is already written with its options and
+          reasons, and the governor reviews it in the pull request.
+Risk    : A question can close without the governor reading it. Bounded
+          by: the recommendation and options stay in the register, the
+          governor reviews the pull request, and nothing security-related,
+          no setting and no release moves without the governor.
+Status  : ACCEPTED (governor, 2026-11-25)
