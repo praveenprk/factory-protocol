@@ -25,7 +25,8 @@ Include:
 - what an attacker can do, and the steps or input that show it;
 - any fix you suggest.
 
-You will get an answer in the advisory thread, or by email. Once a fix is
+You will get an acknowledgement within 7 days, in the advisory thread or by
+email. Once a fix is
 merged, the advisory is published with credit to you, unless you ask not to
 be named.
 
@@ -42,5 +43,6 @@ be named.
 
 - The page describing the ContextOS factory wrongly. That is a correction:
   open an issue with the "Correction" template.
-- Vulnerabilities in ContextOS itself. Report those to the contextos
-  repository.
+- Vulnerabilities in ContextOS itself are outside this repository's scope.
+  Its repository is private, so report them to the maintainer through the
+  same private channel above, and the maintainer will route them.
