@@ -132,7 +132,8 @@ Decision: factory-protocol runs two long-lived branches, as ENG-DEC-012
           The repository settings (the `stable` branch, its ruleset, the
           required checks, the Pages source, the tag) are the governor's.
           This decision changes none of them.
-Reason  : Governor, 2026-11-25: "go for the main+stable prep (ENG-DEC-012)".
+Reason  : Governor, 2026-11-25: directed the main+stable preparation for
+          this project.
           ENG-DEC-012 names software and specification projects. This
           documentation project follows it, so that one flow covers every
           governed repository.
