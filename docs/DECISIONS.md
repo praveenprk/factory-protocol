@@ -96,8 +96,11 @@ Reason  : The audit's `fmt_lint` check detects the inline script as
           JavaScript, and the tests added for V-ENG-008-03 are Python.
           Prettier and ESLint are what the audit names for JavaScript, and
           ruff is what fid and eng-principles already use. Rejected: Biome
-          (does not lint scripts inside HTML), and JavaScript tests (the
-          audit's `tests` check finds only Rust or Python tests).
+          (does not lint scripts inside HTML), and JavaScript tests: the
+          tests read the page as text and need nothing beyond the Python
+          standard library, so testing the page needs no Node runtime or
+          test framework. As a consequence, the audit's `tests` check,
+          which looks for Rust or Python tests, finds them.
 Risk    : Dependabot's pull requests carry no anchor, so the shared commit
           check refuses them; the governor retitles them or recreates their
           commits. Reformatting the page with Prettier is a one-off
