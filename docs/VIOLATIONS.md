@@ -53,10 +53,10 @@ Anchor    : #3
 ### V-ENG-008-03
 SPEC says : ENG-STD-008 §2.2, check `tests` (MUST): automated tests.
 Code does : No tests at 1340fa7. Nothing checks that index.html is factory-protocol.html in its document wrapper (README.md says it is), or that the page's stations and transitions match contextos factory/protocol/state-machine.
-Severity  : HIGH — rule b, OpenSSF Best Practices MUST `test`.
+Severity  : HIGH — rule b, OpenSSF Best Practices MUST `test` (proposed; the governor confirms that it applies to a documentation-only project, which ENG-DEC-008 left `not assessed`. DECISION-002's TEST gate is the equivalent process ENG-DEC-015 Q-002 allows).
 Impact    : The page can drift from the factory it describes, or from its own source file, without anyone noticing.
 Fix       : tests/ run in CI: the wrapper check, and the page's transitions against a pinned copy of the contextos state machine (DECISION-002, TEST gate).
-When      : CI change.
+When      : CI change. Resolved when DECISION-002 is ACCEPTED and the first tests/ check runs in CI.
 Status    : OPEN
 Anchor    : #3
 
