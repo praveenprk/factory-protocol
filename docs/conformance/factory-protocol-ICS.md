@@ -27,7 +27,7 @@ specification of its own; what it describes is defined in contextos
 |----------|--------|----------|-----------------|
 | ENG-STD-001 Language & IDs | not assessed | Not yet read against this repository. Needs a read of the page and registers against §1 and §2 | — |
 | ENG-STD-002 Lifecycle gates | partial | DECISION-002 maps the gates and records the trivial class (§5.4). It is PROPOSED until the governor decides the trivial class (§3.2). No machine check of the TEST gate yet | V-ENG-008-03 |
-| ENG-STD-003 Design | n/a | No software design: one static page with one inline script | — |
+| ENG-STD-003 Design | n/a | The inline script is construction, held to ENG-STD-004. It has no design surface: no interfaces, modules or contracts, and no substrate beyond the browser | — |
 | ENG-STD-004 Construction | not yet | Inline `<script>` in factory-protocol.html and index.html is code (§0). No formatter or linter in CI, and the languages bound are not recorded (§0.2) | V-ENG-004-01 |
 | ENG-STD-005 Change control | partial | Ruleset `factory-protocol-ruleset`: pull request required, no deletion, no force-push, merge commits only (`gh api repos/praveenprk/factory-protocol/rulesets/27276808`). AGENTS.md (V-ENG-005-01, resolved). Shared commit check configured (scripts/hooks) but not called or required. Commits before adoption are unanchored | V-ENG-005-02 |
 | ENG-STD-006 Registers | partial | docs/DECISIONS.md, docs/VIOLATIONS.md, this file (V-ENG-006-01, resolved). DECISION-001 is PROPOSED | — |

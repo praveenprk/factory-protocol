@@ -12,8 +12,8 @@ Factory Protocol. What the page describes is defined in contextos, not here
 
 ## Roles
 
-- PK (GitHub: praveenprk) is the governor and the only one who merges into
-  `main`. PK accepts decisions and confirms violation severities.
+- The governor (praveenprk) is the only one who merges into `main`. The
+  governor accepts decisions and confirms violation severities.
 - Contributors propose decisions (Status PROPOSED), file violations with
   evidence, and open pull requests. They do not merge into `main`, push to
   it, or decide.
@@ -42,6 +42,8 @@ Factory Protocol. What the page describes is defined in contextos, not here
 
 Trivial changes (DECISION-002: typos, formatting, link fixes, dependency
 updates, contributor documents) skip steps 1 and 2 and still carry an anchor.
+Dependency and GitHub Action updates are supply-chain changes: they carry
+the label `security` and only the governor merges them.
 
 ## Changes
 
@@ -59,7 +61,8 @@ updates, contributor documents) skip steps 1 and 2 and still carry an anchor.
 - Do not mark anything `conformant` in docs/conformance/factory-protocol-ICS.md
   without cited evidence (a test, a commit, or a command and its output).
 - A change touching SECURITY.md, workflow token permissions, secrets,
-  branch rules or required checks is security-related (ENG-STD-005 §2.5):
+  branch rules, required checks, or a dependency or GitHub Action version
+  is security-related (ENG-STD-005 §2.5):
   it carries the label `security` and only a human merges it.
 
 ## Enforcement

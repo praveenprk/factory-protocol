@@ -10,4 +10,4 @@
 - [ ] A check in tests/ covers the fact where a machine can check it, and failed before the page changed
 - [ ] docs/VIOLATIONS.md updated if this fixes a recorded violation
 - [ ] No co-author or tool-attribution lines in commits or this description
-- [ ] Label `security` if this touches SECURITY.md, workflow permissions, secrets, branch rules or required checks (ENG-STD-005 §2.5)
+- [ ] Label `security` if this touches SECURITY.md, workflow permissions, secrets, branch rules, required checks, or a dependency or Action version (ENG-STD-005 §2.5)

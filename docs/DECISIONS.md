@@ -9,7 +9,7 @@
 ## DECISION-001 — Adopt eng-principles
 
 Date    : 2026-11-25
-Refs    : eng-principles ENG-DEC-008 (registers this project), ENG-STD-005, ENG-STD-006, ENG-STD-008, ENG-DEC-009, ENG-DEC-015; issue #3
+Refs    : eng-principles ENG-DEC-008 (registers this project), ENG-STD-005, ENG-STD-006, ENG-STD-008, ENG-DEC-009, ENG-DEC-012, ENG-DEC-015 (Q-005); issue #3
 Decision: factory-protocol follows eng-principles. Its registers are:
           | eng-principles           | factory-protocol                          |
           |--------------------------|-------------------------------------------|
@@ -25,10 +25,10 @@ Decision: factory-protocol follows eng-principles. Its registers are:
           Enforcement is on GitHub, not on the contributor's machine. No
           local hooks are vendored: a local hook never runs on a merge made
           on GitHub, and it can be skipped.
-          Roles (ENG-STD-005 §2.6): the governor (PK, GitHub praveenprk) is
+          Roles (ENG-STD-005 §2.6): the governor (praveenprk) is
           the only one who merges into `main`. This project grants no
-          contributor, human or automated, the merge right ENG-DEC-015
-          allows, until the governor decides otherwise here. There are no
+          contributor, human or automated, the merge right ENG-DEC-012
+          gives (refined by ENG-DEC-015, Q-005), until the governor decides otherwise here. There are no
           releases and no `stable` branch: the main+stable migration
           (ENG-DEC-012) is deferred by the governor.
 Reason  : The project has none of the registers ENG-STD-006 requires, and
@@ -60,7 +60,10 @@ Decision: factory-protocol describes the ContextOS Factory Protocol. What
           - typos, grammar and wording that changes no stated fact;
           - formatting, including formatter output;
           - fixing a broken link to the same target;
-          - dependency and GitHub Action updates with no change to the page;
+          - dependency and GitHub Action updates with no change to the page.
+            These are supply-chain changes, so they are security-related
+            (ENG-STD-005 §2.5, ENG-DEC-013): they carry the label `security`
+            and only the governor merges them;
           - changes to contributor documents and registers that add no rule.
           Anything that changes what the page says the factory does
           (stations, gates, roles, rules, transitions) is not trivial.
