@@ -1,0 +1,2 @@
+# Python tools for CI and local checks (DECISION-003). Pinned; Dependabot proposes updates.
+ruff==0.17.6

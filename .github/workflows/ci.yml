@@ -1,0 +1,63 @@
+name: CI
+
+# Lint, tests and link check on every pull request and on main
+# (DECISION-003; V-ENG-004-01, V-ENG-008-03, V-ENG-008-06).
+# Every action is pinned to a commit; Dependabot proposes updates.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: npm ci
+      - name: Prettier (page and its inline script)
+        run: npx prettier --check factory-protocol.html eslint.config.mjs
+      - name: ESLint (inline script)
+        run: npx eslint .
+      - run: pip install -r requirements-dev.txt
+      - name: ruff (tests and scripts)
+        run: |
+          ruff check .
+          ruff format --check .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Page tests
+        run: python -m unittest discover -s tests -v
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          # fonts.googleapis.com is a preconnect origin, not a page.
+          # Security advisory links need a signed-in user.
+          args: >-
+            --no-progress
+            --exclude '^https://fonts\.googleapis\.com/?$'
+            --exclude '/security/advisories/new$'
+            factory-protocol.html README.md CONTRIBUTING.md SECURITY.md AGENTS.md CODE_OF_CONDUCT.md docs
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

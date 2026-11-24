@@ -1,0 +1,6 @@
+# ruff for the Python in tests/ and scripts/ (DECISION-003, ENG-STD-004 §6.1).
+line-length = 120
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP"]
