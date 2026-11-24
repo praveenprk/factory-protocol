@@ -1,7 +1,7 @@
 # VIOLATIONS.md
 # factory-protocol — Violations Register
 # Append only. No violation is ever removed. A violation may be marked
-# RESOLVED with date and commit reference. (eng-principles ENG-STD-006,
+# RESOLVED with date and commit reference. Dates of merges are UTC. (eng-principles ENG-STD-006,
 # templates/violation.md)
 #
 # Severity follows eng-principles ENG-STD-006 §2.3 (ENG-DEC-013); each
@@ -37,7 +37,7 @@ Severity  : HIGH — rule b, OpenSSF Best Practices MUST `contribution`.
 Impact    : A contributor cannot find how to propose a change or what is checked.
 Fix       : CONTRIBUTING.md, with AGENTS.md for the full rules.
 When      : This change.
-Status    : RESOLVED — 2026-11-25, this change (issue #3).
+Status    : RESOLVED — 2026-11-24, ae200f2 (#4).
 Anchor    : #3
 
 ### V-ENG-008-02
@@ -47,7 +47,7 @@ Severity  : HIGH — rule a gives MEDIUM (OpenSSF Scorecard Security-Policy); ru
 Impact    : A reporter may disclose a problem in a public issue, for example a script injection in the page served on GitHub Pages.
 Fix       : SECURITY.md pointing to private vulnerability reporting. Security-related (ENG-STD-005 §2.5): its own pull request, label `security`, merged by a human.
 When      : Next change.
-Status    : RESOLVED — 2026-11-25, the change that adds SECURITY.md (issue #3).
+Status    : RESOLVED — 2026-11-24, 3e8e7c2 (#5).
 Anchor    : #3
 
 ### V-ENG-008-03
@@ -67,7 +67,7 @@ Severity  : HIGH — rule b, OpenSSF Best Practices MUST `warnings`.
 Impact    : Script errors in the page are found only by someone opening it in a browser.
 Fix       : DECISION-003 names the languages bound (§0.2): JavaScript in the inline script (Prettier 3.10.1, ESLint 10.15.0 with eslint-plugin-html 8.2.1) and Python in tests/ and scripts/ (ruff 0.17.6, check and format). The `lint` job of .github/workflows/ci.yml runs them; versions are pinned in package-lock.json and requirements-dev.txt.
 When      : CI change.
-Status    : RESOLVED — 2026-11-25, the CI change (issue #3).
+Status    : RESOLVED — 2026-11-24, fba350e (#6).
 Anchor    : #3
 
 ### V-ENG-008-04
@@ -87,7 +87,7 @@ Severity  : HIGH — rule a, OpenSSF Scorecard Dependency-Update-Tool (High).
 Impact    : Once CI uses pinned actions and tools, they go stale silently.
 Fix       : .github/dependabot.yml: weekly updates for GitHub Actions, npm (package.json) and pip (requirements-dev.txt), labelled `security` (DECISION-002).
 When      : CI change.
-Status    : RESOLVED — 2026-11-25, the CI change (issue #3).
+Status    : RESOLVED — 2026-11-24, fba350e (#6).
 Anchor    : #3
 
 ### V-ENG-008-06
@@ -97,7 +97,7 @@ Severity  : LOW — rule a, OpenSSF Scorecard CI-Tests (Low).
 Impact    : Nothing is checked before a merge except GitGuardian.
 Fix       : .github/workflows/ci.yml runs on every pull request and on pushes to main: jobs `lint`, `test`, `links`.
 When      : CI change.
-Status    : RESOLVED — 2026-11-25, the CI change (issue #3).
+Status    : RESOLVED — 2026-11-24, fba350e (#6).
 Anchor    : #3
 
 ### V-ENG-006-01
@@ -107,7 +107,7 @@ Severity  : MEDIUM — rule c, eng-principles' own rule; it changes no behaviour
 Impact    : Gaps and decisions are tracked only in eng-principles, not where a contributor to this project looks.
 Fix       : docs/DECISIONS.md, this file, docs/conformance/factory-protocol-ICS.md (DECISION-001).
 When      : This change.
-Status    : RESOLVED — 2026-11-25, this change (issue #3).
+Status    : RESOLVED — 2026-11-24, ae200f2 (#4).
 Anchor    : DECISION-001
 
 ### V-ENG-005-01
@@ -117,7 +117,7 @@ Severity  : MEDIUM — rule c, eng-principles' own rule; it changes no behaviour
 Impact    : An automated contributor has no stated rules for this repository.
 Fix       : AGENTS.md; CLAUDE.md only points to it.
 When      : This change.
-Status    : RESOLVED — 2026-11-25, this change (issue #3).
+Status    : RESOLVED — 2026-11-24, ae200f2 (#4).
 Anchor    : DECISION-001
 
 ### V-ENG-005-02
@@ -127,5 +127,5 @@ Severity  : MEDIUM — rule c, eng-principles' own rule; it changes no behaviour
 Impact    : The reason for each change cannot be traced by machine.
 Fix       : A workflow calling eng-principles' shared commit check pinned to a commit (ENG-DEC-009), with scripts/hooks/types and scripts/hooks/anchors (this change); then the governor requires `commit-check / check`. History is not rewritten: resolved forward only.
 When      : CI change, then the governor's ruleset change.
-Status    : PARTIALLY_RESOLVED — 2026-11-25, the CI change (issue #3): .github/workflows/commit-check.yml calls the shared check pinned to eng-principles 8613443. Not yet required by the ruleset (V-ENG-008-04).
+Status    : PARTIALLY_RESOLVED — 2026-11-24, fba350e (#6): .github/workflows/commit-check.yml calls the shared check pinned to eng-principles 8613443. Not yet required by the ruleset (V-ENG-008-04).
 Anchor    : DECISION-001
