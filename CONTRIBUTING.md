@@ -43,6 +43,17 @@ drift.
 5. **Fixing a recorded violation?** Update docs/VIOLATIONS.md in the same
    pull request.
 6. **Merging:** the governor merges into `main` (AGENTS.md: Roles).
+   *Effective when `stable` exists (ENG-DEC-012, DECISION-005):* a pull
+   request merges into `main` once every required check passes, no question
+   in docs/QUESTIONS.md is OPEN, and it is not labelled `security`. The
+   governor merges `security` changes, promotes `main` → `stable`, and tags
+   releases.
+7. **Need a judgment?** Add a Q-NNN entry to docs/QUESTIONS.md in your pull
+   request, with options and a recommendation. The `questions` check fails
+   while it is OPEN, and that is intended. The governor answers on the pull
+   request. Under the standing rule (DECISION-006), the recommended option
+   is recorded as the governor's answer unless the governor answers
+   otherwise.
 
 ## Checks you can run locally
 
