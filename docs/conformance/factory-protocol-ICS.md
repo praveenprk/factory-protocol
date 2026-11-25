@@ -6,7 +6,7 @@ standards (ENG-STD-006). Vocabulary: `conformant` / `partial` / `not yet` /
 assessed` row states why, and what assessing it needs (ENG-DEC-015).
 
 Date of last update: 2026-11-25
-Baseline: main 1340fa7, plus the change that adds this file (#3).
+Baseline: main fba350e (#4, #5, #6 merged). eng-principles audit (audit/audit.py at 86d9e76, kinds `docs`) run 2026-11-24T21:12Z against fba350e: MUST 12 of 14, SHOULD 5 of 6.
 
 ## What this project is
 
@@ -32,5 +32,5 @@ specification of its own; what it describes is defined in contextos
 | ENG-STD-003 Design | n/a | The inline script is construction, held to ENG-STD-004. It has no design surface: no interfaces, modules or contracts, and no substrate beyond the browser | — |
 | ENG-STD-006 Registers | partial | docs/DECISIONS.md, docs/VIOLATIONS.md, this file (V-ENG-006-01, resolved). DECISION-001 is PROPOSED | — |
 | ENG-STD-007 Quality model | not assessed | No quality characteristics are constrained, as there is no SPEC here. Needs DECISION-002 accepted, then a read of which ENG-STD-007 characteristics apply to a page | — |
-| ENG-STD-008 Contributor readiness | not yet | Present: README, licence (Apache-2.0), CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md (private vulnerability reporting, V-ENG-008-02 resolved), AGENTS.md, issue and pull request templates, registers, branch rules. CI on every pull request (`lint`, `test`, `links`), tests/ (8 tests), linting, Dependabot. Missing: a required build check and the shared check required (both governor ruleset changes); DECISION-002 accepted for `tests`; repository topics (`about`, a governor setting) | V-ENG-008-03, V-ENG-008-04, V-ENG-005-02 |
+| ENG-STD-008 Contributor readiness | partial | Audit at fba350e (2026-11-24T21:12Z): every check that applies to `docs` passes except three, all repository settings: `required` (no build or test check required to merge, V-ENG-008-04), `commit_check` (the shared check is called but not required, V-ENG-005-02), `about` (no topics). Checks for rust, python and spec kinds report n/a for a documentation project (changelog, semver, releases, signed, supply, cargo_meta, msrv, docs, pyproject, py_min, bcp14, seccons, trace) | V-ENG-008-04, V-ENG-005-02 |
 | ENG-STD-009 Evidence and maturity | conformant | Maturity row above, as read by eng-principles CONFORMANCE.md (2026-11-23) | — |
