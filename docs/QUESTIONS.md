@@ -10,8 +10,9 @@ docs/DECISIONS.md. Entries are never deleted (ENG-STD-006 §2.1).
 
 Standing rule (DECISION-006): the Recommend option is the governor's answer.
 It is recorded as "ANSWERED (governor, standing rule 2026-11-25): <option>".
-The governor can override it on the pull request. Security merges, settings
-and tags still wait for the governor.
+The governor can override it on the pull request. A pull request that records
+an answer this way is merged by the governor. Security merges, settings and
+tags still wait for the governor.
 
 ---
 

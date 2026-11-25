@@ -38,8 +38,10 @@ Factory Protocol. What the page describes is defined in contextos, not here
   answered on anyone else's word. The one exception is the standing rule
   (DECISION-006): the contributor records the question's Recommend option
   as "ANSWERED (governor, standing rule 2026-11-25): <option>". The
-  governor's own answer on the pull request overrides it. Security merges,
-  settings and tags still wait for the governor.
+  governor's own answer on the pull request overrides it. A pull request
+  that records an answer this way is merged by the governor, as a
+  security-related change is. Security merges, settings and tags still
+  wait for the governor.
 
 ## Before work
 
