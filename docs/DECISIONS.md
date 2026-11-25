@@ -37,7 +37,7 @@ Reason  : The project has none of the registers ENG-STD-006 requires, and
           knows one finds the same layout here.
 Risk    : Commits made before adoption (6767f6e..13ad193) carry no anchors.
           History is not rewritten (V-ENG-005-02).
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -108,7 +108,7 @@ Risk    : Dependabot's pull requests carry no anchor, so the shared commit
           check refuses them; the governor retitles them or recreates their
           commits. Reformatting the page with Prettier is a one-off
           whitespace change (DECISION-002, trivial class).
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -143,7 +143,7 @@ Reason  : Governor, 2026-11-25: directed the main+stable preparation for
 Risk    : Until the governor's settings are in place, the Roles lines
           marked "effective when stable exists" describe a flow that cannot
           run yet.
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -169,7 +169,7 @@ Risk    : Changes reach `main` without a human reading them. Bounded by the
           required checks, the questions check, the `security` label, and
           the governor's promotion review. A change wrongly left unlabelled
           is caught at that review.
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
