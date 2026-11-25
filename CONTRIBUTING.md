@@ -53,7 +53,7 @@ drift.
    while it is OPEN, and that is intended. The governor answers on the pull
    request. Under the standing rule (DECISION-006), the recommended option
    is recorded as the governor's answer unless the governor answers
-   otherwise.
+   otherwise, and the governor merges that pull request.
 
 ## Checks you can run locally
 

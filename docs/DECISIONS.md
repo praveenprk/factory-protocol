@@ -186,11 +186,17 @@ Decision: The governor set a standing rule on 2026-11-25. For every Q-NNN
           The rule does not cover security-related merges, repository
           settings (branch rules, required checks, environments, Pages), or
           tags and releases. Those still wait for the governor.
+          A pull request that records an answer under this rule is merged
+          by the governor, as a security-related change is (governor,
+          2026-11-25). Work proceeds on the recommended option, and every
+          answer given this way still passes a human merge.
 Reason  : The governor's direction in the session that prepared main and
           stable. A recommendation is already written with its options and
           reasons, and the governor reviews it in the pull request.
 Risk    : A question can close without the governor reading it. Bounded
-          by: the recommendation and options stay in the register, the
-          governor reviews the pull request, and nothing security-related,
-          no setting and no release moves without the governor.
+          by: the recommendation and options stay in the register; the
+          governor merges every pull request that records such an answer,
+          even after DECISION-005 lets contributors merge into `main`; and
+          nothing security-related, no setting and no release moves
+          without the governor.
 Status  : ACCEPTED (governor, 2026-11-25)
