@@ -37,7 +37,7 @@ Reason  : The project has none of the registers ENG-STD-006 requires, and
           knows one finds the same layout here.
 Risk    : Commits made before adoption (6767f6e..13ad193) carry no anchors.
           History is not rewritten (V-ENG-005-02).
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -108,7 +108,7 @@ Risk    : Dependabot's pull requests carry no anchor, so the shared commit
           check refuses them; the governor retitles them or recreates their
           commits. Reformatting the page with Prettier is a one-off
           whitespace change (DECISION-002, trivial class).
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -143,7 +143,7 @@ Reason  : Governor, 2026-11-25: directed the main+stable preparation for
 Risk    : Until the governor's settings are in place, the Roles lines
           marked "effective when stable exists" describe a flow that cannot
           run yet.
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -169,7 +169,7 @@ Risk    : Changes reach `main` without a human reading them. Bounded by the
           required checks, the questions check, the `security` label, and
           the governor's promotion review. A change wrongly left unlabelled
           is caught at that review.
-Status  : PROPOSED
+Status  : ACCEPTED (governor, 2026-11-26)
 
 ---
 
@@ -200,3 +200,33 @@ Risk    : A question can close without the governor reading it. Bounded
           nothing security-related, no setting and no release moves
           without the governor.
 Status  : ACCEPTED (governor, 2026-11-25)
+
+---
+
+## DECISION-007 — An agent merges a pull request that only records a first-hand governor acceptance
+
+Date    : 2026-11-26
+Refs    : eng-principles ENG-DEC-012, ENG-STD-005 §2.5; DECISION-001, DECISION-005, DECISION-006; #10
+Decision: A pull request whose only change records something the
+          governor has already accepted first-hand may be merged by an
+          automated contributor once every required check passes and the
+          master review (engineering-fa) records it ok. "Something accepted"
+          means a decision's acceptance or a question's answer.
+          "First-hand" means the governor's own message to that
+          contributor, or the governor's comment on the pull request. An
+          answer recorded under the standing rule (DECISION-006) is not
+          first-hand, and the governor still merges such a pull request.
+          A pull request labelled `security` is still merged by the
+          governor. A pull request that changes anything else follows
+          DECISION-005.
+Reason  : Relayed by engineering-fa from the governor on 2026-11-26: the
+          governor asked for this rule to be recorded in each governed
+          repository. A pull request that only records what the governor
+          has already said adds no judgment, so a human merge of it adds
+          no review.
+Risk    : The pull request may record more, or something different from,
+          what the governor accepted. Bounded by: the acceptance being
+          first-hand and quoted or dated in the pull request; the master
+          review comparing the change with it; and the governor's review
+          of each `main` → `stable` promotion.
+Status  : PROPOSED (relayed by engineering-fa from the governor, 2026-11-26; the governor accepts it first-hand or by merging this pull request)
