@@ -229,4 +229,4 @@ Risk    : The pull request may record more, or something different from,
           first-hand and quoted or dated in the pull request; the master
           review comparing the change with it; and the governor's review
           of each `main` → `stable` promotion.
-Status  : PROPOSED (relayed by engineering-fa from the governor, 2026-11-26; the governor accepts it first-hand or by merging this pull request)
+Status  : ACCEPTED (governor, 2026-11-26: merged #11, d996477)

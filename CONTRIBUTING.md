@@ -54,6 +54,11 @@ drift.
    request. Under the standing rule (DECISION-006), the recommended option
    is recorded as the governor's answer unless the governor answers
    otherwise, and the governor merges that pull request.
+8. **Recording the governor's acceptance?** A pull request whose only
+   change records a decision accepted or a question answered by the
+   governor first-hand may be merged by an automated contributor once
+   checks pass and the master review is ok, unless it is labelled
+   `security` (DECISION-007).
 
 ## Checks you can run locally
 
