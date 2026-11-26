@@ -42,6 +42,14 @@ Factory Protocol. What the page describes is defined in contextos, not here
   that records an answer this way is merged by the governor, as a
   security-related change is. Security merges, settings and tags still
   wait for the governor.
+- Recording an acceptance (DECISION-007): a pull request whose only
+  change records something the governor accepted first-hand (the
+  governor's own message to the contributor, or comment on the pull
+  request) — a decision's acceptance or a question's answer — may be
+  merged by an automated contributor once every required check passes
+  and the master review (engineering-fa) records it ok. Not if it is
+  labelled `security`, and not for an answer recorded under the standing
+  rule (DECISION-006).
 
 ## Before work
 
