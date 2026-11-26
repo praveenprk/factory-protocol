@@ -21,12 +21,12 @@
 | V-ENG-008-02 | ENG-STD-008 `security` | security | HIGH | RESOLVED |
 | V-ENG-008-03 | ENG-STD-008 `tests` | tests | HIGH | OPEN (tests/ in CI; awaits DECISION-002) |
 | V-ENG-004-01 | ENG-STD-004 §6.1 | fmt_lint | HIGH | RESOLVED |
-| V-ENG-008-04 | ENG-STD-008 `required` | required | HIGH | OPEN |
+| V-ENG-008-04 | ENG-STD-008 `required` | required | HIGH | RESOLVED |
 | V-ENG-008-05 | ENG-STD-008 `dependabot` | dependabot | HIGH | RESOLVED |
 | V-ENG-008-06 | ENG-STD-008 `ci` | ci | LOW | RESOLVED |
 | V-ENG-006-01 | ENG-STD-006 §1 | registers | MEDIUM | RESOLVED |
 | V-ENG-005-01 | ENG-STD-005 §6.1 | agents | MEDIUM | RESOLVED |
-| V-ENG-005-02 | ENG-STD-005 §1.3, §1.5 | commit_check | MEDIUM | PARTIALLY_RESOLVED |
+| V-ENG-005-02 | ENG-STD-005 §1.3, §1.5 | commit_check | MEDIUM | RESOLVED |
 
 ---
 
@@ -77,7 +77,7 @@ Severity  : HIGH — rule a, OpenSSF Scorecard Branch-Protection (High).
 Impact    : A change that breaks the page can merge.
 Fix       : After the CI change merges, the governor adds its jobs (`lint`, `test`, `links`, and `commit-check / check`) to the ruleset's required checks. Changing required checks is security-related (ENG-STD-005 §2.5) and is the governor's.
 When      : After the CI change.
-Status    : OPEN
+Status    : RESOLVED — 2026-11-27, GitHub API evidence read by the reviewer: active ruleset `factory-protocol-ruleset` (id 27276808, default branch) and active ruleset `stable-integrity` (id 28107503, `refs/heads/stable`) each require `GitGuardian Security Checks`, `lint`, `test`, `links`, `commit-check / check`, and `commit-check / questions`.
 Anchor    : #3
 
 ### V-ENG-008-05
@@ -127,5 +127,6 @@ Severity  : MEDIUM — rule c, eng-principles' own rule; it changes no behaviour
 Impact    : The reason for each change cannot be traced by machine.
 Fix       : A workflow calling eng-principles' shared commit check pinned to a commit (ENG-DEC-009), with scripts/hooks/types and scripts/hooks/anchors (this change); then the governor requires `commit-check / check`. History is not rewritten: resolved forward only.
 When      : CI change, then the governor's ruleset change.
-Status    : PARTIALLY_RESOLVED — 2026-11-24, fba350e (#6): .github/workflows/commit-check.yml calls the shared check pinned to eng-principles 8613443. Not yet required by the ruleset (V-ENG-008-04).
+Status    : RESOLVED — 2026-11-27, GitHub API evidence read by the reviewer: active ruleset `factory-protocol-ruleset` (id 27276808, default branch) and active ruleset `stable-integrity` (id 28107503, `refs/heads/stable`) each require `GitGuardian Security Checks`, `lint`, `test`, `links`, `commit-check / check`, and `commit-check / questions`.
+            History: PARTIALLY_RESOLVED — 2026-11-24, fba350e (#6): .github/workflows/commit-check.yml calls the shared check pinned to eng-principles 8613443. Not yet required by the ruleset (V-ENG-008-04).
 Anchor    : DECISION-001
