@@ -12,7 +12,10 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 PAGE = (ROOT / "index.html").read_text(encoding="utf-8")
 
-# Adding an origin is a security-related change (AGENTS.md).
+# Origins the page itself names (SECURITY.md, "In scope"). Adding one
+# widens what the page loads: say so in the pull request. This is not a
+# full network allow-list: the Google Fonts stylesheet loads its font
+# files from fonts.gstatic.com, which the page never names.
 ALLOWED = {"https://fonts.googleapis.com"}
 
 ATTRIBUTE_URL = re.compile(r"""\b(?:href|src)\s*=\s*(["'])((?:https?:)?//.*?)\1""", re.IGNORECASE)
