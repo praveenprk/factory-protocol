@@ -36,6 +36,13 @@ class PageIsADocument(unittest.TestCase):
         self.assertIn('<meta charset="utf-8" />', PAGE)
         self.assertTrue(PAGE.rstrip().endswith("</html>"))
 
+    def test_document_head_contains_the_title_fonts_and_styles(self):
+        head, body = re.split(r"</head>", PAGE, maxsplit=1)
+        self.assertIn("<title>", head)
+        for tag in ("title", "meta", "link", "style"):
+            with self.subTest(tag=tag):
+                self.assertNotIn(f"<{tag}", body)
+
 
 class StationsMatchTheLine(unittest.TestCase):
     def test_script_has_eleven_stations_numbered_00_to_10(self):
