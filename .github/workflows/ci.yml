@@ -25,7 +25,7 @@ jobs:
           python-version: "3.12"
       - run: npm ci
       - name: Prettier (page and its inline script)
-        run: npx prettier --check factory-protocol.html eslint.config.mjs
+        run: npx prettier --check index.html eslint.config.mjs
       - name: ESLint (inline script)
         run: npx eslint .
       - run: pip install -r requirements-dev.txt
@@ -57,7 +57,7 @@ jobs:
             --no-progress
             --exclude '^https://fonts\.googleapis\.com/?$'
             --exclude '/security/advisories/new$'
-            factory-protocol.html README.md CONTRIBUTING.md SECURITY.md AGENTS.md CODE_OF_CONDUCT.md docs
+            index.html README.md CONTRIBUTING.md SECURITY.md AGENTS.md CODE_OF_CONDUCT.md docs
           fail: true
         env:
           GITHUB_TOKEN: ${{ github.token }}

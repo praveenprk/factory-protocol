@@ -12,7 +12,7 @@ or automated, are in [AGENTS.md](AGENTS.md). This page is the short version.
   [docs/VIOLATIONS.md](docs/VIOLATIONS.md).
 - **The page follows the factory, not the other way round.** If the page says
   something the factory does not do, the fix is to the page, with the
-  contextos source that shows it (docs/DECISIONS.md DECISION-002).
+  factory source that shows it (docs/DECISIONS.md DECISION-002).
 - **Found a security problem?** Do not open a public issue. Report it
   privately through the repository's Security tab ("Report a
   vulnerability"). See [SECURITY.md](SECURITY.md).
@@ -20,15 +20,13 @@ or automated, are in [AGENTS.md](AGENTS.md). This page is the short version.
 ## Viewing the page
 
 Open `index.html` in a browser, or see
-https://praveenprk.github.io/factory-protocol/. `factory-protocol.html` is
-the same page without the `<html>`, `<head>` and `<body>` wrapper. Edit
-`factory-protocol.html`; `index.html` is built from it and the two must not
-drift.
+https://praveenprk.github.io/factory-protocol/. `index.html` is the page;
+edit it directly (DECISION-008).
 
 ## How a change gets in
 
 1. **Open an issue** saying what is wrong or missing, and for a change to
-   what the page says about the factory, which contextos file says otherwise
+   what the page says about the factory, which factory source says otherwise
    (at a commit). Typos, formatting and broken links need no issue beyond
    the anchor (DECISION-002, trivial class).
 2. **Branch** from `main`: `type/ANCHOR-description`, e.g.
@@ -42,12 +40,10 @@ drift.
    description.
 5. **Fixing a recorded violation?** Update docs/VIOLATIONS.md in the same
    pull request.
-6. **Merging:** the governor merges into `main` (AGENTS.md: Roles).
-   *Effective when `stable` exists (ENG-DEC-012, DECISION-005):* a pull
-   request merges into `main` once every required check passes, no question
-   in docs/QUESTIONS.md is OPEN, and it is not labelled `security`. The
-   governor merges `security` changes, promotes `main` → `stable`, and tags
-   releases.
+6. **Merging** (DECISION-005): a pull request merges into `main` once
+   every required check passes, no question in docs/QUESTIONS.md is OPEN,
+   and it is not labelled `security`. The governor merges `security`
+   changes, promotes `main` → `stable`, and tags releases.
 7. **Need a judgment?** Add a Q-NNN entry to docs/QUESTIONS.md in your pull
    request, with options and a recommendation. The `questions` check fails
    while it is OPEN, and that is intended. The governor answers on the pull
@@ -65,7 +61,6 @@ drift.
 CI runs the same commands (.github/workflows/ci.yml, DECISION-003):
 
 ```sh
-python3 scripts/build_index.py              # regenerate index.html after editing the page
 python3 -m unittest discover -s tests       # page tests, standard library only
 npm ci && npm run format:check && npm run lint     # Prettier and ESLint
 pip install -r requirements-dev.txt && ruff check . && ruff format --check .

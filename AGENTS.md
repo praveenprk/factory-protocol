@@ -12,25 +12,20 @@ Factory Protocol. What the page describes is defined in contextos, not here
 
 ## Roles
 
-- The governor (praveenprk) is the only one who merges into `main`. The
-  governor accepts decisions and confirms violation severities.
+- The governor (praveenprk) accepts decisions and confirms violation
+  severities.
 - Contributors propose decisions (Status PROPOSED), file violations with
-  evidence, and open pull requests. They do not merge into `main`, push to
-  it, or decide.
-- Releases: none yet. The page is published from `main` by GitHub Pages.
-  There is no `stable` branch yet. The governor has started the main+stable
-  migration (ENG-DEC-012, DECISION-004). Until `stable` exists, the two lines
-  above apply as written.
-- **Effective when `stable` exists (ENG-DEC-012, DECISION-004,
-  DECISION-005):** any contributor, human or automated, merges a pull request into
-  `main` once every required check passes, no question in docs/QUESTIONS.md
-  is OPEN, and the change is not labelled `security`. Security-related
+  evidence, and open pull requests. They do not push to `main` or decide.
+- Branches (ENG-DEC-012, DECISION-004): `main` integrates; `stable` is
+  released, and GitHub Pages publishes the page from it.
+- Merging (DECISION-005): any contributor, human or automated, merges a
+  pull request into `main` once every required check passes, no question
+  in docs/QUESTIONS.md is OPEN, and the change is not labelled `security`. Security-related
   changes are merged by the governor. Only the governor merges `main` →
   `stable` (a merge commit) and tags releases on `stable`. An automated
   contributor never pushes to `stable`, promotes, or tags.
-- Release record (ENG-STD-005 §2.6), effective when `stable` exists: each
-  release is a signed tag `vX.Y.Z` on `stable`. Its tag message or release
-  page states the commit released, every required check's result at that
+- Release record (ENG-STD-005 §2.6): each release is a signed tag
+  `vX.Y.Z` on `stable`. Its tag message or release page states the commit released, every required check's result at that
   commit, the open violations, and that the governor authorised it.
 - Questions: a judgment the work needs is a Q-NNN entry in
   docs/QUESTIONS.md, added by the pull request that raises it. The governor
@@ -66,9 +61,7 @@ Factory Protocol. What the page describes is defined in contextos, not here
    source that says otherwise.
 2. A check in tests/ that fails first, where the fact can be checked by
    machine; otherwise the pull request names the source line.
-3. Then the page: edit factory-protocol.html, and regenerate index.html from
-   it with `python3 scripts/build_index.py` (index.html is the same page
-   inside a document wrapper; tests/ fails if it is stale).
+3. Then the page: edit index.html (DECISION-008).
 4. Then README.md and the registers.
 
 Trivial changes (DECISION-002: typos, formatting, link fixes, dependency

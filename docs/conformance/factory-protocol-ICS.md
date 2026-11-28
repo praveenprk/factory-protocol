@@ -11,9 +11,8 @@ Baseline: main fba350e (#4, #5, #6 merged). eng-principles audit (audit/audit.py
 ## What this project is
 
 A documentation-only project: one page describing the ContextOS Factory
-Protocol (factory-protocol.html, and index.html built from it). It has no
-specification of its own; what it describes is defined in contextos
-(DECISION-002).
+Protocol (index.html, DECISION-008). It has no specification of its own;
+what it describes is defined in contextos (DECISION-002).
 
 ## Maturity (ENG-STD-009)
 
