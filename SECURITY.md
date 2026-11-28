@@ -2,8 +2,8 @@
 
 ## Supported versions
 
-factory-protocol has no releases. The page published from `main`
-(https://praveenprk.github.io/factory-protocol/) is the only supported
+The latest release on `stable`, which GitHub Pages publishes
+(https://praveenprk.github.io/factory-protocol/), is the only supported
 version.
 
 ## Reporting a vulnerability
@@ -32,17 +32,16 @@ be named.
 
 ## In scope
 
-- **The page and its inline script** (factory-protocol.html, index.html),
+- **The page and its inline script** (index.html),
   for example script injection, or loading content from an origin the page
   does not name.
 - **The workflows** in .github/workflows: a way to run code with the
   workflow token, or to get secrets.
-- **The published GitHub Pages site**, where it differs from `main`.
+- **The published GitHub Pages site**, where it differs from `stable`.
 
 ## Not a vulnerability
 
-- The page describing the ContextOS factory wrongly. That is a correction:
-  open an issue with the "Correction" template.
-- Vulnerabilities in ContextOS itself are outside this repository's scope.
-  Its repository is private, so report them to the maintainer through the
-  same private channel above, and the maintainer will route them.
+- The page describing the factory wrongly. That is a correction: open an
+  issue with the "Correction" template.
+- Vulnerabilities in the factory itself are outside this repository's
+  scope. Report them through the same private channel above.

@@ -230,3 +230,30 @@ Risk    : The pull request may record more, or something different from,
           review comparing the change with it; and the governor's review
           of each `main` → `stable` promotion.
 Status  : ACCEPTED (governor, 2026-11-26: merged #11, d996477)
+
+---
+
+## DECISION-008 — One page file; ContextOS mentions in public-facing text
+
+Date    : 2026-11-28
+Refs    : Q-003, Q-004 (answered A); DECISION-002, DECISION-003, DECISION-006; eng-principles ENG-STD-004 §6.1
+Decision: index.html is the page. It is edited directly. Prettier formats
+          it, ESLint lints its inline script, and tests/ checks it.
+          factory-protocol.html and scripts/build_index.py are removed.
+          This supersedes DECISION-003's rule that index.html is generated
+          and not formatted or linted: the JavaScript row of DECISION-003
+          now applies to index.html. DECISION-002's BUILD gate is met by
+          the change to index.html.
+          ContextOS stays named where it says what the page is, in the
+          contextos source list in AGENTS.md, and in the registers and the
+          ICS. Contextos paths, commits and file lists are removed from the
+          README, CONTRIBUTING.md, SECURITY.md and the issue and pull
+          request templates, where "the factory source" replaces them.
+Reason  : The governor asked for a cleanup of unnecessary files, content
+          and mentions on 2026-11-28 (relayed by engineering-fa). Q-003 A:
+          one file can't drift. Q-004 A: the name is the page's subject,
+          while private paths are references a public reader can't open.
+Risk    : A contributor without contextos access can't produce the source
+          a correction needs (DECISION-002). This was so before; the
+          templates now say so less specifically.
+Status  : PROPOSED

@@ -4,8 +4,8 @@
   "description": "Formatter and linter for the page's inline script (DECISION-003). Not a package.",
   "license": "Apache-2.0",
   "scripts": {
-    "format": "prettier --write factory-protocol.html eslint.config.mjs",
-    "format:check": "prettier --check factory-protocol.html eslint.config.mjs",
+    "format": "prettier --write index.html eslint.config.mjs",
+    "format:check": "prettier --check index.html eslint.config.mjs",
     "lint": "eslint ."
   },
   "devDependencies": {

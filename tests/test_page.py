@@ -4,20 +4,14 @@ Run: python3 -m unittest discover -s tests
 Standard library only.
 """
 
-import importlib.util
 import re
 import unittest
 from itertools import pairwise
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGE = (ROOT / "factory-protocol.html").read_text(encoding="utf-8")
-INDEX = (ROOT / "index.html").read_text(encoding="utf-8")
+PAGE = (ROOT / "index.html").read_text(encoding="utf-8")
 README = (ROOT / "README.md").read_text(encoding="utf-8")
-
-_spec = importlib.util.spec_from_file_location("build_index", ROOT / "scripts" / "build_index.py")
-build_index = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(build_index)
 
 STATION = re.compile(r'\{\s*g:\s*"([A-Z-]+)",\s*n:\s*"(\d\d)",\s*from:\s*"([^"]+)"')
 
@@ -35,13 +29,12 @@ def readme_line():
     return m.group(1).split(" → ")
 
 
-class IndexIsGeneratedFromSource(unittest.TestCase):
-    def test_index_html_is_factory_protocol_html_in_its_wrapper(self):
-        self.assertEqual(
-            INDEX,
-            build_index.build(PAGE),
-            "index.html is stale: run python3 scripts/build_index.py",
-        )
+class PageIsADocument(unittest.TestCase):
+    def test_index_html_is_a_complete_english_document(self):
+        self.assertTrue(PAGE.startswith("<!doctype html>"))
+        self.assertIn('<html lang="en">', PAGE)
+        self.assertIn('<meta charset="utf-8" />', PAGE)
+        self.assertTrue(PAGE.rstrip().endswith("</html>"))
 
 
 class StationsMatchTheLine(unittest.TestCase):

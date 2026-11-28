@@ -7,8 +7,7 @@ production line ContextOS uses to build itself.
 > Content here may change as the protocol evolves.
 
 View it live at https://praveenprk.github.io/factory-protocol/ or open
-`index.html` in a browser. `factory-protocol.html` is the same page
-without the document wrapper (the source used to build `index.html`).
+`index.html` in a browser.
 
 ## What it covers
 
@@ -22,13 +21,10 @@ without the document wrapper (the source used to build `index.html`).
   review-by-exception mapping from RFC-032
 - **Release:** the governor's role before and after DECISION-039
 
-Sources: ContextOS `AGENTS.md`, `docs/DECISIONS.md` (DECISION-017, -019, -039),
-`factory/protocol/state-machine`, `factory/supervisor.sh`, RFC-032 §7.
-
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md). The page
-follows the factory it describes: a correction cites the contextos source
+follows the factory it describes: a correction cites the factory source
 that shows it. Decisions, known gaps and conformance are recorded in
 [docs/DECISIONS.md](docs/DECISIONS.md), [docs/VIOLATIONS.md](docs/VIOLATIONS.md)
 and [docs/conformance/factory-protocol-ICS.md](docs/conformance/factory-protocol-ICS.md).

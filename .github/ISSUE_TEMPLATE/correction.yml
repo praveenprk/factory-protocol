@@ -1,5 +1,5 @@
 name: Correction
-description: The page says something the ContextOS factory does not do, or leaves out something it does
+description: The page says something the factory does not do, or leaves out something it does
 body:
   - type: textarea
     id: page
@@ -12,6 +12,6 @@ body:
     id: source
     attributes:
       label: What the factory does
-      description: The contextos source that says so, at a commit (e.g. factory/protocol/state-machine @ 29426e1). See docs/DECISIONS.md DECISION-002.
+      description: The factory source that says so, at a commit. See docs/DECISIONS.md DECISION-002.
     validations:
       required: true

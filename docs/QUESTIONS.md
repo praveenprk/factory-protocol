@@ -57,3 +57,42 @@ Recommend: A, because the published page is what readers rely on. It
            should pass the same human review as a release.
 Raised by: the pull request that adds this file (chore/ENG-DEC-012-main-stable-prep)
 Status   : ANSWERED (governor, standing rule 2026-11-25): A → DECISION-004
+
+### Q-003
+Scenario : The page exists twice. factory-protocol.html is the source and
+           index.html is the same page in a document wrapper, built by
+           scripts/build_index.py, with a test that fails if they drift.
+           GitHub Pages serves index.html. Nothing else uses
+           factory-protocol.html.
+Options  : A — Keep only index.html: edit it directly, and format, lint
+               and test it. factory-protocol.html, scripts/build_index.py
+               and the wrapper test are removed.
+           B — Keep both, as DECISION-003 records.
+Recommend: A, because one file can't drift. The build step and its test
+           exist only to keep two copies equal.
+Raised by: the pull request that adds this entry (chore/Q-003-cleanup-one-page-fewer-mentions)
+Status   : ANSWERED (governor, standing rule 2026-11-25): A → DECISION-008
+
+### Q-004
+Scenario : contextos is private, and this repository is public. Some
+           mentions of ContextOS can't be followed by a public reader: file
+           paths and commits in the issue template, and the README's list
+           of contextos source files. Other mentions carry meaning: the
+           page is the ContextOS Factory Protocol, agents correcting the
+           page need to know where the facts live, and the registers and
+           the ICS record what was true.
+Options  : A — Keep the name where it says what the page is (the page,
+               README, AGENTS.md, CONTRIBUTING.md and ICS opening lines).
+               Keep the contextos source list in AGENTS.md (for agents with
+               access) and every mention in the registers and the ICS
+               (append-only history and evidence). Remove contextos paths,
+               commits and file lists from public-facing text: the
+               README, CONTRIBUTING.md, SECURITY.md and the issue and pull
+               request templates. There, "the factory source" replaces
+               them.
+           B — Remove the name everywhere, the page included.
+Recommend: A, because the page is about ContextOS, and its name is the
+           page's subject. A public reader loses only references they
+           couldn't open.
+Raised by: the pull request that adds this entry (chore/Q-003-cleanup-one-page-fewer-mentions)
+Status   : ANSWERED (governor, standing rule 2026-11-25): A → DECISION-008
